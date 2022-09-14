@@ -1,9 +1,9 @@
 import java.io.*;
 
 public class Basket {
-    String[] products;
-    int[] prices;
-    int[] countOfProducts;
+   private String[] products;
+   private int[] prices;
+    private int[] countOfProducts;
 
     public Basket(String[] products, int[] prices) {
         this.products = products;

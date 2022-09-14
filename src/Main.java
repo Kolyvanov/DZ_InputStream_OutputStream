@@ -33,11 +33,16 @@ public class Main {
             if ("end".equals(input)) {
                 break;
             }
+            try {
+                String[] parts = input.split(" ");
+                productNumber = Integer.parseInt(parts[0]);
+                productCount = Integer.parseInt(parts[1]);
+            } catch (Exception e) {
+                System.out.println("Некорректный ввод. Введите два числа.");
+                continue;
+            }
+                basket.addToCart(productNumber, productCount);
 
-            String[] parts = input.split(" ");
-            productNumber = Integer.parseInt(parts[0]);
-            productCount = Integer.parseInt(parts[1]);
-            basket.addToCart(productNumber, productCount);
         }
         basket.printCart();
 
