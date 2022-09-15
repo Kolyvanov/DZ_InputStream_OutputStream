@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String[] products = {"Хлеб", "Соль", "Мука", "Яйца", "Овсянка"};
+        String[] products = {"РҐР»РµР±", "РЎРѕР»СЊ", "РњСѓРєР°", "РЇР№С†Р°", "РћРІСЃСЏРЅРєР°"};
         int[] prices = {27, 30, 33, 80, 70};
 
         File file = new File(basket_file);
@@ -18,14 +18,14 @@ public class Main {
         }
 
 
-        System.out.println("Список возможных товаров для покупки:");
+        System.out.println("РЎРїРёСЃРѕРє РІРѕР·РјРѕР¶РЅС‹С… С‚РѕРІР°СЂРѕРІ РґР»СЏ РїРѕРєСѓРїРєРё:");
 
         for (int i = 0; i < products.length; i++) {
-            System.out.println((i + 1) + "." + " " + products[i] + " " + prices[i] + " " + "руб.");
+            System.out.println((i + 1) + "." + " " + products[i] + " " + prices[i] + " " + "СЂСѓР±.");
         }
 
         while (true) {
-            System.out.println("Выберите продукт и его количество или введите end для завершения");
+            System.out.println("Р’С‹Р±РµСЂРёС‚Рµ РїСЂРѕРґСѓРєС‚ Рё РµРіРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РёР»Рё РІРІРµРґРёС‚Рµ end РґР»СЏ Р·Р°РІРµСЂС€РµРЅРёСЏ");
             String input = scanner.nextLine();
             int productNumber = 0;
             int productCount = 0;
@@ -38,7 +38,7 @@ public class Main {
                 productNumber = Integer.parseInt(parts[0]);
                 productCount = Integer.parseInt(parts[1]);
             } catch (Exception e) {
-                System.out.println("Некорректный ввод. Введите два числа.");
+                System.out.println("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ. Р’РІРµРґРёС‚Рµ РґРІР° С‡РёСЃР»Р°.");
                 continue;
             }
                 basket.addToCart(productNumber, productCount);

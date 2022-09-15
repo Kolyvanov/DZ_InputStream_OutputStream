@@ -19,16 +19,16 @@ public class Basket {
     public void printCart() {
         int sumProducts = 0;
 
-        System.out.println("Ваша корзина:");
+        System.out.println("Р’Р°С€Р° РєРѕСЂР·РёРЅР°:");
 
         for (int i = 0; i < products.length; i++) {
             if (countOfProducts[i] > 0) {
                 sumProducts += countOfProducts[i] * prices[i];
-                System.out.println(products[i] + " " + countOfProducts[i] + " шт " + prices[i] + " руб/шт. "
-                        + countOfProducts[i] * prices[i] + " руб в сумме");
+                System.out.println(products[i] + " " + countOfProducts[i] + " С€С‚ " + prices[i] + " СЂСѓР±/С€С‚. "
+                        + countOfProducts[i] * prices[i] + " СЂСѓР± РІ СЃСѓРјРјРµ");
             }
         }
-        System.out.println("Итого: " + sumProducts + " руб ");
+        System.out.println("РС‚РѕРіРѕ: " + sumProducts + " СЂСѓР± ");
 
     }
 
