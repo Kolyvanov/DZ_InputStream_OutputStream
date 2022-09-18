@@ -1,3 +1,5 @@
+package org.exemple.magazin;
+
 import java.io.*;
 
 public class Basket implements Serializable {

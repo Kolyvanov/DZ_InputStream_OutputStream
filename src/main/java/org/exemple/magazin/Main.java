@@ -1,3 +1,7 @@
+package org.exemple.magazin;
+
+import org.exemple.magazin.Basket;
+
 import java.io.File;
 import java.util.Scanner;
 
