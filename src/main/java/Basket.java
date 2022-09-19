@@ -1,8 +1,8 @@
 import java.io.*;
 
 public class Basket {
-   private String[] products;
-   private int[] prices;
+    private String[] products;
+    private int[] prices;
     private int[] countOfProducts;
 
     public Basket(String[] products, int[] prices) {
@@ -82,7 +82,7 @@ public class Basket {
             }
             basket = new Basket(products, prices);
             for (int i = 0; i < countOfProducts.length; i++) {
-                basket.addToCart((i +  1), countOfProducts[i]);
+                basket.addToCart((i + 1), countOfProducts[i]);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

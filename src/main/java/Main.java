@@ -41,7 +41,7 @@ public class Main {
                 System.out.println("Некорректный ввод. Введите два числа.");
                 continue;
             }
-                basket.addToCart(productNumber, productCount);
+            basket.addToCart(productNumber, productCount);
 
         }
         basket.printCart();
