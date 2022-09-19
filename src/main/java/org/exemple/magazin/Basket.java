@@ -1,5 +1,7 @@
 package org.exemple.magazin;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.*;
 
 public class Basket implements Serializable {
@@ -16,7 +18,6 @@ public class Basket implements Serializable {
 
     public void addToCart(int productNum, int amount) {
         countOfProducts[productNum - 1] += amount;
-        saveBin(new File(Main.basket_file));
     }
 
     public void printCart() {
@@ -35,22 +36,15 @@ public class Basket implements Serializable {
 
     }
 
-    public void saveBin(File binFile) {
-        try (ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(binFile))) {
-            os.writeObject(this);
+    public void saveToJSON (Basket basket){
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(new File("basket.json"), basket);
         } catch (IOException e) {
+            System.out.println("файл не может быть прочитан");
             throw new RuntimeException(e);
         }
     }
 
-    public static Basket loadFromBinFile(File binFile) {
-        Basket basket;
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(binFile))) {
-            basket = (Basket) ois.readObject();
 
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        return basket;
-    }
 }
