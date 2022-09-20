@@ -4,11 +4,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
 
-public class Basket implements Serializable {
-    private static final long serialVersionUID = 928815022945L;
+public class Basket {
+
     String[] products;
     int[] prices;
     int[] countOfProducts;
+
+    public Basket() {
+
+    }
 
     public Basket(String[] products, int[] prices) {
         this.products = products;
@@ -17,6 +21,7 @@ public class Basket implements Serializable {
     }
 
     public void addToCart(int productNum, int amount) {
+
         countOfProducts[productNum - 1] += amount;
     }
 
@@ -96,13 +101,25 @@ public class Basket implements Serializable {
             }
             basket = new Basket(products, prices);
             for (int i = 0; i < countOfProducts.length; i++) {
-                basket.addToCart((i +  1), countOfProducts[i]);
+                basket.addToCart((i + 1), countOfProducts[i]);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
 
         }
         return basket;
+    }
+
+    public String[] getProducts() {
+        return products;
+    }
+
+    public int[] getPrices() {
+        return prices;
+    }
+
+    public int[] getCountOfProducts() {
+        return countOfProducts;
     }
 
 

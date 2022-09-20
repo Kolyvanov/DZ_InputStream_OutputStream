@@ -1,22 +1,32 @@
 package org.exemple.magazin;
 
-import org.exemple.magazin.Basket;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static String basket_file = "basket.bin";
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         String[] products = {"Хлеб", "Соль", "Мука", "Яйца", "Овсянка"};
         int[] prices = {27, 30, 33, 80, 70};
 
+        String basket_file = "basket.json";
         File file = new File(basket_file);
+        File txtFile = new File("log.csv");
         Basket basket;
+        ClientLog clientLog = new ClientLog();
         if (file.exists()) {
-            basket = Basket.loadFromBinFile(file);
+            ObjectMapper mapper = new ObjectMapper();
+            try {
+                basket = mapper.readValue(new File(basket_file), Basket.class);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             basket = new Basket(products, prices);
         }
@@ -35,6 +45,7 @@ public class Main {
             int productCount = 0;
 
             if ("end".equals(input)) {
+                clientLog.exportAsCSV(txtFile);
                 break;
             }
 
@@ -47,6 +58,8 @@ public class Main {
                 continue;
             }
             basket.addToCart(productNumber, productCount);
+            clientLog.log(productNumber, productCount);
+            basket.saveToJSON(basket);
         }
         basket.printCart();
     }

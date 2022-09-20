@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientLog {
-    private List<String[]> shopLog = new ArrayList<>();
-    private int indexOfLine = 1;
+    protected List<String[]> shopLog = new ArrayList<>();
+    protected int indexOfLine = 1;
 
     public ClientLog() {
         shopLog.add(new String[]{"1", "productNum", "amount"});
