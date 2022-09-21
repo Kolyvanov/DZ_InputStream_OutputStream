@@ -41,10 +41,10 @@ public class Basket {
 
     }
 
-    public void saveToJSON(Basket basket) {
+    public void saveToJSON(Basket basket, String saveFileName) {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(new File("basket.json"), basket);
+            mapper.writeValue(new File(saveFileName), basket);
         } catch (IOException e) {
             System.out.println("файл не может быть прочитан");
             throw new RuntimeException(e);

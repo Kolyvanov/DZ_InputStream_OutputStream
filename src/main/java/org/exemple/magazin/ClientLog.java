@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ClientLog {
     protected List<String[]> shopLog = new ArrayList<>();
-    protected int indexOfLine = 1;
+    protected int indexOfLine = 2;
 
     public ClientLog() {
         shopLog.add(new String[]{"1", "productNum", "amount"});
